@@ -21,7 +21,7 @@ class Module
     {
         $application = $event->getApplication();
         $serviceManager = $application->getServiceManager();
-        //$translator = $serviceManager->get('translator');
+        //$translator = $serviceManager->get('MvcTranslator');
         //\Zend\Validator\AbstractValidator::setDefaultTranslator($translator);
         
     }

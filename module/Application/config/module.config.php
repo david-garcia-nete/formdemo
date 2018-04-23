@@ -107,9 +107,6 @@ return [
             Service\MailSender::class => InvokableFactory::class,
             Service\ImageManager::class => InvokableFactory::class,
         ],
-        'aliases' => [
-            'translator' => 'MvcTranslator',
-        ]
     ],
     'session_containers' => [
         'UserRegistration'
