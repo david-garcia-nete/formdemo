@@ -12,6 +12,7 @@ use Zend\Router\Http\Segment;
 use Zend\Router\Http\Regex;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Application\Route\StaticRoute;
+use Zend\I18n\Translator\Resources;
 
 return [
     'router' => [
@@ -106,6 +107,9 @@ return [
             Service\MailSender::class => InvokableFactory::class,
             Service\ImageManager::class => InvokableFactory::class,
         ],
+        'aliases' => [
+            'translator' => 'MvcTranslator',
+        ]
     ],
     'session_containers' => [
         'UserRegistration'
@@ -136,6 +140,21 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'translator' => [
+        'locale' => 'es_ES',
+        'translation_file_patterns' => [
+            [
+                'type'     => 'phpArray',
+                'base_dir' => Resources::getBasePath(),
+                'pattern'  => Resources::getPatternForValidator()
+            ],
+            [
+                'type'     => 'phpArray',
+                'base_dir' => Resources::getBasePath(),
+                'pattern'  => Resources::getPatternForCaptcha()
+            ],
         ],
     ],
 ];
